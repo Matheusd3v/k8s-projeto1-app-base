@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql 
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - image: matheusgomesa/projeto-dio-database:1.0
+        imagePullPolicy: Always
+        name: mysql
+        ports:
+        - containerPort: 3306
+          name: mysql
+        
+        volumeMounts:
+        - name: persistent-volume-dio
+          mountPath: /var/lib/mysql/
+      volumes:
+      - name: persistent-volume-dio
+        persistentVolumeClaim:
+          claimName: persistent-volume-dio
+      
