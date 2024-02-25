@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata: 
+  name: persistent-volume-dio
+  labels:
+    type: persistent-volume-dio
+spec:
+  storageClassName:  manual 
+  capacity: 
+    storage: 300Mi 
+  accessModes:
+    - ReadWriteOnce
+  hostPath: 
+    path: /database-backup/ 
+
+
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: persistent-volume-dio
+spec:
+  storageClassName: manual
+  accessModes: 
+    - ReadWriteOnce
+  volumeName: persistent-volume-dio
+  resources:
+    requests:
+      storage: 100Mi
